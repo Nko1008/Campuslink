@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusLink - Déclarer un incident</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>CampusLink</h1>
+
+        <nav>
+            <a href="index.html">Tableau de bord</a>
+            <a href="sales.html">Salles</a>
+            <a href="equipements.html">Équipements</a>
+            <a href="incidents.html">Incidents</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Déclarer un incident</h2>
+            <p> Signalez un problème technique rencontré sur le campus.</p>
+        </section>
+        <form class="incident-form">
+
+            <label for="titre">Titre de l'incident</label>
+            <input type="text" id="titre" name="titre" required>
+
+            <select id="salle" name="salle" required>
+                <option value=" ">Choisir une salle</option>
+                <option value="a101"> Salle A101</option>
+                <option value="b204"> Salle B204</option>
+                <option value="amphi-c"> Amphitéâtre C</option>
+            </select>
+            <label for="équipement">Équipement concerné</label>
+            <input type="text" id="equipement" name="equipement">
+
+            <label for="description">Description du problème</label>
+            <textarea id="description"
+                        name="description" 
+                        rows="5" 
+                        required></textarea>
+            <button type="submit">Déclarer l'incident</button>
+
+        </form>
+    </main>
+    
+</body>
+</html>
