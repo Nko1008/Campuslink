@@ -4,40 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CampusLink - Tableau de bord</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    >
 </head>
 
 <body>
 
     <header>
 
-        <h1>CampusLink</h1>
+        <div class="header-contenu">
 
-        <nav aria-label="Navigation principale">
-            <ul>
-                <li><a href="index.html">Tableau de bord</a></li>
-                <li><a href="salles.html">Salles</a></li>
-                <li><a href="equipements.html">Équipements</a></li>
-                <li><a href="incidents.html">Incidents</a></li>
-            </ul>
-        </nav>
+            <a href="index.html" class="logo" aria-label="CampusLink, accueil">
+                CampusLink
+            </a>
+
+            <nav aria-label="Navigation principale">
+                <ul>
+                    <li><a href="index.html">Tableau de bord</a></li>
+                    <li><a href="salles.html">Salles</a></li>
+                    <li><a href="equipements.html">Équipements</a></li>
+                    <li><a href="incidents.html">Incidents</a></li>
+                </ul>
+            </nav>
+
+        </div>
 
     </header>
 
+
     <main>
 
-        <section>
-            <h2>Tableau de bord</h2>
+        <section class="accueil">
+
+            <p class="sur-titre">CampusLink</p>
+
+            <h1>Tableau de bord</h1>
 
             <p>
                 Bienvenue sur CampusLink, l'outil de gestion du campus.
             </p>
 
+            <p>
+                Dernière mise à jour :
+                <time datetime="2026-10-04T14:30">
+                    4 octobre 2026 à 14 h 30
+                </time>
+            </p>
+
             <a class="button" href="declarer-incident.html">
                 Déclarer un incident
             </a>
+
         </section>
+
 
         <section class="dashboard">
 
@@ -67,53 +93,91 @@
 
         </section>
 
+
+        <section>
+
+            <h2>Incidents récents</h2>
+
+            <div class="cards">
+
+                <article>
+                    <h3>Vidéoprojecteur en panne</h3>
+                    <p>Salle A101</p>
+                    <p>Statut : En cours</p>
+                    <a href="incident-detail.html">Voir le détail</a>
+                </article>
+
+                <article>
+                    <h3>Ordinateur hors service</h3>
+                    <p>Salle B204</p>
+                    <p>Statut : À traiter</p>
+                    <a href="incidents.html">Voir les incidents</a>
+                </article>
+
+            </div>
+
+        </section>
+
     </main>
+
 
     <footer>
 
-    <div class="footer-contenu">
+        <div class="footer-contenu">
 
-        <div class="footer-contact">
-            <h2>Nous contacter</h2>
+            <section>
+                <h2>Nous joindre</h2>
 
-            <p>
-                <a href="tel:+33100000000">
-                    01 00 00 00 00
-                </a>
-            </p>
+                <p>
+                    <a href="tel:+33100000000">
+                        01 00 00 00 00
+                    </a>
+                </p>
 
-            <p>
-                <a href="mailto:contact@campuslink.fr">
-                    contact@campuslink.fr
-                </a>
-            </p>
+                <p>
+                    <a href="mailto:contact@campuslink.fr">
+                        contact@campuslink.fr
+                    </a>
+                </p>
+            </section>
+
+
+            <section>
+                <h2>Réseaux</h2>
+
+                <div class="logos">
+
+                    <a
+                        href="https://www.instagram.com/"
+                        aria-label="CampusLink sur Instagram"
+                    >
+                        <img
+                            src="https://img.magnific.com/vecteurs-premium/icone-logo-vectoriel-instagram-logotype-medias-sociaux_901408-392.jpg?semt=ais_hybrid&w=740&q=80"
+                            alt="Instagram"
+                        >
+                    </a>
+
+                    <a
+                        href="mailto:contact@campuslink.fr"
+                        aria-label="Envoyer un email à CampusLink"
+                    >
+                        <img
+                            src="https://static.vecteezy.com/ti/vecteur-libre/p1/13948544-logo-gmail-sur-fond-blanc-transparent-gratuit-vectoriel.jpg"
+                            alt="Gmail"
+                        >
+                    </a>
+
+                </div>
+
+            </section>
+
         </div>
 
-        <div class="footer-reseaux">
-            <h2>Nos réseaux</h2>
+        <p class="copyright">
+            © 2026 CampusLink - Tous droits réservés.
+        </p>
 
-            <a href="https://www.instagram.com/" aria-label="CampusLink sur Instagram">
-                <img
-                    src="https://img.magnific.com/vecteurs-premium/icone-logo-vectoriel-instagram-logotype-medias-sociaux_901408-392.jpg?semt=ais_hybrid&w=740&q=80"
-                    alt="Instagram"
-                >
-            </a>
-
-            <a href="mailto:contact@campuslink.fr" aria-label="Envoyer un email à CampusLink">
-                <img
-                    src="https://static.vecteezy.com/ti/vecteur-libre/p1/13948544-logo-gmail-sur-fond-blanc-transparent-gratuit-vectoriel.jpg"
-                    alt="Gmail"
-                >
-            </a>
-        </div>
-
-    </div>
-
-    <p class="copyright">
-        © 2026 CampusLink - Tous droits réservés.
-    </p>
-
-</footer>
+    </footer>
 
 </body>
 
