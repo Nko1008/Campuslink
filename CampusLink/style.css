@@ -6,78 +6,108 @@
 /* ---------- La charte ---------- */
 
 :root {
-  --fond: #f4f7fb;
-  --fond-carte: #ffffff;
-  --texte: #182230;
-  --texte-doux: #607084;
-  --bleu: #2457d6;
-  --bleu-fonce: #173a91;
-  --bordure: #d4dce7;
-  --vert: #19764a;
-  --orange: #9a6700;
-  --rouge: #c62828;
-  --rayon: 8px;
+    --fond: #080b18;
+    --fond-carte: #12182d;
+    --texte: #f4f7ff;
+    --texte-doux: #aab4d0;
+
+    --neon-bleu: #00e5ff;
+    --neon-rose: #ff2bd6;
+    --neon-vert: #39ff88;
+
+    --bordure: #25345f;
+
+    --rouge: #ff4d6d;
+    --orange: #ffb000;
+
+    --rayon: 8px;
 }
 
 
-/* ---------- La base ---------- */
+/* ---------- Base ---------- */
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  background-color: var(--fond);
-  color: var(--texte);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--fond);
+    color: var(--texte);
+
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
 }
 
 main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+    flex: 1;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
+
+
+/* ---------- Sections ---------- */
 
 section {
-  padding: 2rem 0;
+    padding: 2rem 0;
 }
 
 
-/* ---------- Les titres ---------- */
+/* ---------- Titres ---------- */
+
+h1,
+h2 {
+    font-family: "Press Start 2P", monospace;
+    line-height: 1.4;
+}
 
 h1 {
-  color: var(--bleu);
-  font-size: clamp(2rem, 6vw, 3rem);
+    margin: 0 0 1rem;
+
+    color: var(--neon-rose);
+    font-size: clamp(2rem, 6vw, 3rem);
+
+    text-shadow: 0 0 10px var(--neon-rose);
 }
 
 h2 {
-  margin-top: 0;
-  color: var(--bleu-fonce);
-  font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-top: 0;
+
+    color: var(--neon-bleu);
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+
+    text-shadow: 0 0 8px var(--neon-bleu);
 }
 
 h3 {
-  font-size: 1.25rem;
-  line-height: 1.3;
-}
-
-h4 {
-  font-size: 1.1rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
 }
 
 
-/* ---------- Les liens ---------- */
+/* ---------- Liens ---------- */
 
 a {
-  color: var(--bleu);
+    color: var(--neon-bleu);
 }
 
 a:hover {
-  color: var(--bleu-fonce);
+    color: var(--neon-rose);
 }
 
 a:focus-visible,
@@ -85,198 +115,321 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid var(--bleu);
-  outline-offset: 3px;
+    outline: 3px solid var(--neon-rose);
+    outline-offset: 3px;
 }
 
 
 /* ---------- En-tête ---------- */
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  background-color: var(--fond-carte);
-  border-bottom: 1px solid var(--bordure);
+    padding: 1rem 1.5rem;
+
+    background-color: var(--fond-carte);
+
+    border-bottom: 2px solid var(--neon-bleu);
+    box-shadow: 0 0 12px var(--neon-bleu);
 }
 
-header h1 {
-  margin: 0;
+.header-contenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: var(--neon-rose);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+
+    text-shadow: 0 0 8px var(--neon-rose);
 }
 
 
 /* ---------- Menu ---------- */
 
 nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 1rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
 }
 
 nav a {
-  display: inline-block;
-  padding: 0.5rem;
-  text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem;
+
+    color: var(--neon-bleu);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--neon-rose);
+    text-shadow: 0 0 8px var(--neon-rose);
 }
 
 
-/* ---------- Tableau de bord ---------- */
+/* ---------- Accueil ---------- */
 
-.dashboard {
-  padding-top: 1rem;
+.accueil {
+    text-align: center;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+.sur-titre {
+    margin: 0;
+
+    color: var(--neon-vert);
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-
-/* ---------- Salles ---------- */
-
-.salles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+.accueil p {
+    color: var(--texte-doux);
 }
 
 
-/* ---------- Équipements ---------- */
+/* ---------- Bouton ---------- */
 
-.equipments {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+.button {
+    display: inline-block;
+
+    padding: 0.75rem 1.5rem;
+
+    border: 2px solid var(--neon-bleu);
+    border-radius: var(--rayon);
+
+    background-color: var(--neon-bleu);
+    color: var(--fond);
+
+    font: inherit;
+    font-weight: bold;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    box-shadow: 0 0 10px var(--neon-bleu);
 }
 
-
-/* ---------- Incidents ---------- */
-
-.incidents {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+.button:hover {
+    background-color: transparent;
+    color: var(--neon-bleu);
 }
 
 
 /* ---------- Cartes ---------- */
 
+.cards,
+.salles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 1.5rem;
+}
+
 .cards article,
-.salles article,
-.equipments article,
-.incidents article {
-  padding: 1rem;
-  background-color: var(--fond-carte);
-  border: 2px solid transparent;
-  border-radius: var(--rayon);
+.salles article {
+    padding: 1rem;
+
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon);
+
+    background-color: var(--fond-carte);
 }
 
 .cards article:hover,
-.salles article:hover,
-.equipments article:hover,
-.incidents article:hover {
-  border-color: var(--bleu);
+.salles article:hover {
+    border-color: var(--neon-rose);
+    box-shadow: 0 0 15px var(--neon-rose);
 }
 
 
-/* ---------- Boutons ---------- */
+/* ---------- Barre d'état ---------- */
 
-.button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: var(--rayon);
-  background-color: var(--bleu);
-  color: var(--fond-carte);
-  font: inherit;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
+.barre-etat {
+    width: 100%;
+    height: 12px;
+
+    margin: 1rem 0;
+
+    background-color: var(--bordure);
+
+    border-radius: var(--rayon);
 }
 
-.button:hover {
-  background-color: var(--bleu-fonce);
-  color: var(--fond-carte);
-}
+.barre-etat-remplie {
+    width: 80%;
+    height: 100%;
 
+    background-color: var(--neon-vert);
 
-/* ---------- Détail d'un incident ---------- */
+    border-radius: var(--rayon);
 
-.incident-detail {
-  max-width: 700px;
-  padding: 1.5rem;
-  background-color: var(--fond-carte);
-  border: 1px solid var(--bordure);
-  border-radius: var(--rayon);
-}
-
-.incident-detail h4 {
-  margin-bottom: 0.5rem;
+    box-shadow: 0 0 10px var(--neon-vert);
 }
 
 
-/* ---------- Formulaire ---------- */
+/* ---------- Bande verticale Epitech ---------- */
 
-form {
-  max-width: 700px;
+.bande-droite {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: 130px;
+    height: 100vh;
+
+    background-color: var(--fond-carte);
+
+    border-left: 2px solid var(--neon-rose);
+
+    box-shadow: 0 0 18px var(--neon-rose);
+
+    z-index: 10;
 }
 
-label {
-  display: block;
-  margin-bottom: 0.25rem;
-  font-weight: bold;
-}
+.bande-droite img {
+    display: block;
 
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  border: 2px solid var(--bordure);
-  border-radius: var(--rayon);
-  background-color: var(--fond-carte);
-  color: var(--texte);
-  font: inherit;
-}
+    width: 100%;
+    height: 100%;
 
-input:user-invalid,
-select:user-invalid,
-textarea:user-invalid {
-  border-color: var(--rouge);
+    object-fit: cover;
 }
 
 
-/* ---------- Pied de page ---------- */
+/* ---------- Place pour la bande ---------- */
+
+.bande-droite ~ .salles {
+    margin-right: 150px;
+}
+
+
+/* ---------- Footer ---------- */
 
 footer {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: var(--fond-carte);
-  color: var(--texte-doux);
-  text-align: center;
+    margin-top: auto;
+
+    padding: 2rem 1.5rem;
+
+    background-color: var(--fond-carte);
+
+    border-top: 2px solid var(--neon-vert);
+    box-shadow: 0 0 12px var(--neon-vert);
+
+    color: var(--texte-doux);
+}
+
+.footer-contenu {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 2rem;
+
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-contenu section {
+    padding: 0;
+}
+
+.footer-contenu h2 {
+    font-size: 1rem;
+}
+
+.footer-contenu ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logos img {
+    display: block;
+
+    width: 40px;
+    height: 40px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+.logos img:hover {
+    box-shadow: 0 0 12px var(--neon-rose);
+}
+
+.copyright {
+    margin: 2rem 0 0;
+
+    text-align: center;
 }
 
 
-/* ---------- Responsive ---------- */
+/* ---------- Responsive téléphone ---------- */
 
 @media (max-width: 48em) {
-  header {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
 
-  nav ul {
-    justify-content: center;
-  }
+    header {
+        padding: 1rem;
+    }
 
-  section {
-    padding: 1.5rem 0;
-  }
+    .header-contenu {
+        flex-direction: column;
+        gap: 1rem;
+
+        text-align: center;
+    }
+
+    nav ul {
+        gap: 0.25rem;
+    }
+
+    nav a {
+        padding: 0.5rem;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 1.5rem 0;
+    }
+
+    .cards,
+    .salles {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .bande-droite {
+        display: none;
+    }
+
+    .bande-droite ~ .salles {
+        margin-right: 0;
+    }
+
+    .footer-contenu {
+        flex-direction: column;
+    }
 }
