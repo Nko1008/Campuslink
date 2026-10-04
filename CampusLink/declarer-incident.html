@@ -2,23 +2,67 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusLink - Déclarer un incident</title>
-    <link rel="stylesheet" href="style.css">
+   <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+>
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <h1>CampusLink</h1>
 
-        <nav>
-            <a href="index.html">Tableau de bord</a>
-            <a href="sales.html">Salles</a>
-            <a href="equipements.html">Équipements</a>
-            <a href="incidents.html">Incidents</a>
+    <div class="header-contenu">
+
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="CampusLink, accueil"
+        >
+            CampusLink
+        </a>
+
+        <nav aria-label="Navigation principale">
+            <ul>
+
+                <li>
+                    <a href="index.html">Tableau de bord</a>
+                </li>
+
+                <li>
+                    <a href="salles.html">Salles</a>
+                </li>
+
+                <li>
+                    <a href="equipements.html">Équipements</a>
+                </li>
+
+                <li>
+                    <a href="incidents.html">Incidents</a>
+                </li>
+
+                <li>
+                    <a href="incident-detail.html">
+                        Détail de l'incident
+                    </a>
+                </li>
+
+                <li>
+                    <a href="declarer-incident.html">
+                        Déclarer un incident
+                    </a>
+                </li>
+
+            </ul>
         </nav>
-    </header>
+
+    </div>
+
+</header>
 
     <main>
         <section>
@@ -50,4 +94,61 @@
     </main>
     
 </body>
+
+    <footer>
+
+    <div class="footer-contenu">
+
+        <section>
+            <h2>Nous joindre</h2>
+
+            <p>
+                <a href="tel:+33100000000">
+                    01 00 00 00 00
+                </a>
+            </p>
+
+            <p>
+                <a href="mailto:contact@campuslink.fr">
+                    contact@campuslink.fr
+                </a>
+            </p>
+        </section>
+
+
+        <section>
+            <h2>Réseaux</h2>
+
+            <div class="logos">
+
+                <a
+                    href="https://www.instagram.com/"
+                    aria-label="CampusLink sur Instagram"
+                >
+                    <img
+                        src="TON_LIEN_INSTAGRAM"
+                        alt="Instagram"
+                    >
+                </a>
+
+                <a
+                    href="mailto:contact@campuslink.fr"
+                    aria-label="Envoyer un email à CampusLink"
+                >
+                    <img
+                        src="TON_LIEN_GMAIL"
+                        alt="Gmail"
+                    >
+                </a>
+
+            </div>
+        </section>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 CampusLink - Tous droits réservés.
+    </p>
+
+</footer>
 </html>
