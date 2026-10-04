@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusLink - Équipements</title>
+    <title>CampusLink - Salles</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,42 +13,50 @@
     <header>
         <h1>CampusLink</h1>
 
-        <nav>
-            <a href="index.html">Tableau de bord</a>
-            <a href="salles.html">Salles</a>
-            <a href="equipements.html">Équipements</a>
-            <a href="incidents.html">Incidents</a>
+        <nav aria-label="Navigation principale">
+            <ul>
+                <li><a href="index.html">Tableau de bord</a></li>
+                <li><a href="salles.html">Salles</a></li>
+                <li><a href="equipements.html">Équipements</a></li>
+                <li><a href="incidents.html">Incidents</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
+
         <section>
-            <h2>Gestion des équipements</h2>
-            <p>Consultez les équipements disponibles sur le campus.</p>
+            <h2>Gestion des salles</h2>
+            <p>Consultez les salles disponibles sur le campus.</p>
         </section>
 
-        <section class="equipments">
+        <section class="salles">
 
             <article>
-                <h3>Vidéoprojecteur</h3>
-                <p>Salle : A101</p>
-                <p>État : Fonctionnel</p>
+                <h3>Salle A101</h3>
+                <p>Capacité : 30 personnes</p>
+                <p>État : Disponible</p>
             </article>
 
             <article>
-                <h3>Ordinateur</h3>
-                <p>Salle : B204</p>
+                <h3>Salle B204</h3>
+                <p>Capacité : 24 personnes</p>
                 <p>État : En maintenance</p>
             </article>
 
             <article>
-                <h3>Écran interactif</h3>
-                <p>Salle : Amphithéâtre C</p>
-                <p>État : Fonctionnel</p>
+                <h3>Amphithéâtre C</h3>
+                <p>Capacité : 120 personnes</p>
+                <p>État : Disponible</p>
             </article>
 
         </section>
+
     </main>
+
+    <footer>
+        <p>CampusLink</p>
+    </footer>
 
 </body>
 
