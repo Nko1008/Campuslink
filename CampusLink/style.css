@@ -1,171 +1,282 @@
-* {
-    box-sizing: border-box;
+/* =========================================================
+   CampusLink : feuille de style
+   ========================================================= */
+
+
+/* ---------- La charte ---------- */
+
+:root {
+  --fond: #f4f7fb;
+  --fond-carte: #ffffff;
+  --texte: #182230;
+  --texte-doux: #607084;
+  --bleu: #2457d6;
+  --bleu-fonce: #173a91;
+  --bordure: #d4dce7;
+  --vert: #19764a;
+  --orange: #9a6700;
+  --rouge: #c62828;
+  --rayon: 8px;
+}
+
+
+/* ---------- La base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #222;
+  margin: 0;
+  background-color: var(--fond);
+  color: var(--texte);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
 }
 
-header {
-    background-color: #1f3a5f;
-    color: white;
-    padding: 20px;
-}
-
-header h1 {
-    margin: 0 0 15px 0;
-}
-
-nav {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
 main {
-    padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-.cards {
-   display: grid;
-    grid-template-columns:1fr;
-    gap: 20px;
+section {
+  padding: 2rem 0;
 }
 
-.cards article {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    
+
+/* ---------- Les titres ---------- */
+
+h1 {
+  color: var(--bleu);
+  font-size: clamp(2rem, 6vw, 3rem);
 }
 
-nav {
-    flex-wrap: wrap;
-}
-.rooms {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+h2 {
+  margin-top: 0;
+  color: var(--bleu-fonce);
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
-.rooms article {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-.equipments {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 20px;
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
 }
 
-.equipments article {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-.incidents {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 20px;
+h4 {
+  font-size: 1.1rem;
 }
 
-.incidents article {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+
+/* ---------- Les liens ---------- */
+
+a {
+  color: var(--bleu);
 }
 
-.button {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #1f3a5f;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+a:hover {
+  color: var(--bleu-fonce);
 }
-.incident-detail {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    max-width: 700px;
-}
-.incident-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-
-    border-radius: 10px;
-    max-width: 600px;
-}
-.incident-form label {
-    font-weight: bold;
-    margin-top: 5xp;
-}
-.incident-form input,
-.incident-form select,
-.incident-form texterea {
-    width: 100%;
-    padding: 10px;
-
-    border: 1px solid #ccc;
-    border-radius: 5px;
-
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-}
-.incident-form textera {
-    resize: vertical;
-}
-.incident-form button {
-    background-color: #1f3a5f;
-    color: white;
-
-    border: none;
-    border-radius: 5px;
-
-    padding: 12px 16px;
-    margin-top: 10px;
-
-    cursor: pointer;
-    font-size: 1rem;
-}
-.incident-form button:hover {
-    background-color: #2f5b8f;
-}
-nav a:hover 
-    .button:hover {
-        text-decoration: underline;
-
-}
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-    outline: 3px solid #f4b400;
-    outline-offset: 3px;
+  outline: 3px solid var(--bleu);
+  outline-offset: 3px;
 }
-@media (min-width: 768px) {
-    .cards,
-    .rooms ,
-    .equipments
-    .incidents {
-        grid-template-columns: repeat(3, 1fr);
-    }
+
+
+/* ---------- En-tête ---------- */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--fond-carte);
+  border-bottom: 1px solid var(--bordure);
+}
+
+header h1 {
+  margin: 0;
+}
+
+
+/* ---------- Menu ---------- */
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+
+/* ---------- Tableau de bord ---------- */
+
+.dashboard {
+  padding-top: 1rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+
+/* ---------- Salles ---------- */
+
+.salles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+
+/* ---------- Équipements ---------- */
+
+.equipments {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+
+/* ---------- Incidents ---------- */
+
+.incidents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+
+/* ---------- Cartes ---------- */
+
+.cards article,
+.salles article,
+.equipments article,
+.incidents article {
+  padding: 1rem;
+  background-color: var(--fond-carte);
+  border: 2px solid transparent;
+  border-radius: var(--rayon);
+}
+
+.cards article:hover,
+.salles article:hover,
+.equipments article:hover,
+.incidents article:hover {
+  border-color: var(--bleu);
+}
+
+
+/* ---------- Boutons ---------- */
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--rayon);
+  background-color: var(--bleu);
+  color: var(--fond-carte);
+  font: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--bleu-fonce);
+  color: var(--fond-carte);
+}
+
+
+/* ---------- Détail d'un incident ---------- */
+
+.incident-detail {
+  max-width: 700px;
+  padding: 1.5rem;
+  background-color: var(--fond-carte);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+}
+
+.incident-detail h4 {
+  margin-bottom: 0.5rem;
+}
+
+
+/* ---------- Formulaire ---------- */
+
+form {
+  max-width: 700px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--bordure);
+  border-radius: var(--rayon);
+  background-color: var(--fond-carte);
+  color: var(--texte);
+  font: inherit;
+}
+
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--rouge);
+}
+
+
+/* ---------- Pied de page ---------- */
+
+footer {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--fond-carte);
+  color: var(--texte-doux);
+  text-align: center;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 48em) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  section {
+    padding: 1.5rem 0;
+  }
 }
