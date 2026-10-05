@@ -31,6 +31,8 @@ Le projet fonctionne comme une interface statique et ne nécessite pas de JavaSc
 * HTML
 * CSS
 * Flexbox
+* CSS Grid
+* Media Queries
 
 ## Arborescence
 
@@ -40,7 +42,7 @@ CampusLink/
 ├── salles.html
 ├── equipements.html
 ├── incidents.html
-├── detail-incident.html
+├── incident-detail.html
 ├── declarer-incident.html
 └── style.css
 ```

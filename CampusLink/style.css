@@ -15,10 +15,10 @@
     --neon-rose: #ff2bd6;
     --neon-vert: #39ff88;
 
-    --bordure: #25345f;
+    --bordure: #34445c;
 
-    --rouge: #ff4d6d;
-    --orange: #ffb000;
+    --rouge: #d87575;
+    --orange: #d6a85f;
 
     --rayon: 8px;
 }
@@ -82,7 +82,7 @@ h1 {
     color: var(--neon-rose);
     font-size: clamp(2rem, 6vw, 3rem);
 
-    text-shadow: 0 0 10px var(--neon-rose);
+    text-shadow: 0 0 5px var(--neon-rose);
 }
 
 h2 {
@@ -91,7 +91,7 @@ h2 {
     color: var(--neon-bleu);
     font-size: clamp(1.3rem, 4vw, 1.8rem);
 
-    text-shadow: 0 0 8px var(--neon-bleu);
+    text-shadow: 0 0 4px var(--neon-bleu);
 }
 
 h3 {
@@ -128,7 +128,7 @@ header {
     background-color: var(--fond-carte);
 
     border-bottom: 2px solid var(--neon-bleu);
-    box-shadow: 0 0 12px var(--neon-bleu);
+    box-shadow: 0 0 6px var(--neon-bleu);
 }
 
 .header-contenu {
@@ -146,7 +146,7 @@ header {
     font-weight: bold;
     text-decoration: none;
 
-    text-shadow: 0 0 8px var(--neon-rose);
+    text-shadow: 0 0 4px var(--neon-rose);
 }
 
 
@@ -217,7 +217,7 @@ nav a:hover {
     text-decoration: none;
     cursor: pointer;
 
-    box-shadow: 0 0 10px var(--neon-bleu);
+    box-shadow: 0 0 6px var(--neon-bleu);
 }
 
 .button:hover {
@@ -249,7 +249,28 @@ nav a:hover {
 .cards article:hover,
 .salles article:hover {
     border-color: var(--neon-rose);
-    box-shadow: 0 0 15px var(--neon-rose);
+    box-shadow: 0 0 8px var(--neon-rose);
+}
+
+.equipements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 1.5rem;
+}
+
+.equipements article {
+    padding: 1rem;
+
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon);
+
+    background-color: var(--fond-carte);
+}
+
+.equipements article:hover {
+    border-color: var(--neon-rose);
+    box-shadow: 0 0 8px var(--neon-rose);
 }
 
 
@@ -274,7 +295,7 @@ nav a:hover {
 
     border-radius: var(--rayon);
 
-    box-shadow: 0 0 10px var(--neon-vert);
+    box-shadow: 0 0 6px var(--neon-vert);
 }
 
 
@@ -293,7 +314,7 @@ nav a:hover {
 
     border-left: 2px solid var(--neon-rose);
 
-    box-shadow: 0 0 18px var(--neon-rose);
+    box-shadow: 0 0 8px var(--neon-rose);
 
     z-index: 10;
 }
@@ -325,7 +346,7 @@ footer {
     background-color: var(--fond-carte);
 
     border-top: 2px solid var(--neon-vert);
-    box-shadow: 0 0 12px var(--neon-vert);
+    box-shadow: 0 0 6px var(--neon-vert);
 
     color: var(--texte-doux);
 }
@@ -374,13 +395,54 @@ footer {
 }
 
 .logos img:hover {
-    box-shadow: 0 0 12px var(--neon-rose);
+    box-shadow: 0 0 6px var(--neon-rose);
 }
 
 .copyright {
     margin: 2rem 0 0;
 
     text-align: center;
+}
+
+/* ---------- ÉQUIPEMENTS ---------- */
+
+.equipments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.equipments article {
+    padding: 1rem;
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon);
+    background-color: var(--fond-carte);
+}
+
+.equipments article:hover {
+    border-color: var(--neon-rose);
+    box-shadow: 0 0 8px var(--neon-rose);
+}
+/* ---------- INCIDENTS ---------- */
+
+.incidents {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.incidents article {
+    padding: 1rem;
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon);
+    background-color: var(--fond-carte);
+}
+
+.incidents article:hover {
+    border-color: var(--neon-rose);
+    box-shadow: 0 0 8px var(--neon-rose);
 }
 
 
@@ -431,5 +493,11 @@ footer {
 
     .footer-contenu {
         flex-direction: column;
+    }
+    .equipments {
+    grid-template-columns: 1fr;
+    }
+    .incidents {
+    grid-template-columns: 1fr;
     }
 }
