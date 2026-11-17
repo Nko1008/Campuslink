@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusLink - Transports</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    >
+</head>
+
+<body>
+
+    <header>
+        <div class="header-contenu">
+
+            <a href="index.html" class="logo" aria-label="CampusLink, accueil">
+                CampusLink
+            </a>
+
+            <nav aria-label="Navigation principale">
+                <ul>
+                    <li><a href="index.html">Tableau de bord</a></li>
+                    <li><a href="salles.html">Salles</a></li>
+                    <li><a href="equipements.html">Équipements</a></li>
+                    <li><a href="incidents.html">Incidents</a></li>
+                    <li><a href="transports.html" aria-current="page">Transports</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="transport-accueil">
+
+            <p class="sur-titre">CampusLink · Vie du campus</p>
+
+            <h1>Transports</h1>
+
+            <p>
+                Retrouvez les informations sur les transports
+                pour faciliter vos déplacements autour du campus.
+            </p>
+
+        </section>
+
+
+        <section>
+
+            <h2>Rechercher un transport</h2>
+
+            <form class="transport-filtres" action="/transports" method="get">
+
+                <div>
+                    <label for="recherche">Nom d'un arrêt ou d'une ligne</label>
+                    <input
+                        type="search"
+                        id="recherche"
+                        name="recherche"
+                        placeholder="Ex : arrêt, ligne..."
+                    >
+                </div>
+
+                <div>
+                    <label for="type">Type de transport</label>
+
+                    <select id="type" name="type">
+                        <option value="">Tous les transports</option>
+                        <option value="bus">Bus</option>
+                        <option value="tram">Tramway</option>
+                        <option value="metro">Métro</option>
+                        <option value="train">Train</option>
+                    </select>
+                </div>
+
+                <button type="submit">Rechercher</button>
+
+            </form>
+
+        </section>
+
+
+        <section>
+
+            <h2>Les réseaux de transport</h2>
+
+            <p>
+                Consultez les lignes et les arrêts disponibles
+                autour du campus.
+            </p>
+
+            <div class="transport-cartes">
+
+                <article>
+                    <h3>Bus</h3>
+                    <p>
+                        Retrouvez les lignes de bus et leurs arrêts.
+                    </p>
+                    <p class="transport-statut">
+                        Données API à connecter
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Tramway</h3>
+                    <p>
+                        Consultez les lignes de tramway à proximité.
+                    </p>
+                    <p class="transport-statut">
+                        Données API à connecter
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Métro et train</h3>
+                    <p>
+                        Retrouvez les stations et les lignes ferroviaires.
+                    </p>
+                    <p class="transport-statut">
+                        Données API à connecter
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section>
+
+            <h2>Informations sur les transports</h2>
+
+            <div class="transport-informations">
+
+                <article>
+                    <h3>Arrêts à proximité</h3>
+                    <p>
+                        Les arrêts proches du campus seront affichés ici.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Horaires</h3>
+                    <p>
+                        Les horaires des transports seront affichés ici.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Perturbations</h3>
+                    <p>
+                        Les éventuelles perturbations seront affichées ici.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-contenu">
+
+            <section>
+                <h2>Nous joindre</h2>
+
+                <p>
+                    <a href="tel:+33100000000">01 00 00 00 00</a>
+                </p>
+
+                <p>
+                    <a href="mailto:contact@campuslink.fr">
+                        contact@campuslink.fr
+                    </a>
+                </p>
+            </section>
+
+            <section>
+                <h2>Réseaux</h2>
+
+                <div class="logos">
+
+                    <a
+                        href="https://www.instagram.com/"
+                        aria-label="CampusLink sur Instagram"
+                    >
+                        <img
+                            src="https://img.magnific.com/vecteurs-premium/icone-logo-vectoriel-instagram-logotype-medias-sociaux_901408-392.jpg?semt=ais_hybrid&w=740&q=80"
+                            alt="Instagram"
+                        >
+                    </a>
+
+                    <a
+                        href="mailto:contact@campuslink.fr"
+                        aria-label="Envoyer un email à CampusLink"
+                    >
+                        <img
+                            src="https://static.vecteezy.com/ti/vecteur-libre/p1/13948544-logo-gmail-sur-fond-blanc-transparent-gratuit-vectoriel.jpg"
+                            alt="Gmail"
+                        >
+                    </a>
+
+                </div>
+            </section>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 CampusLink - Tous droits réservés.
+        </p>
+
+    </footer>
+
+</body>
+</html>
