@@ -5,25 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>CampusLink - Transports</title>
-
     <link rel="stylesheet" href="style.css">
-
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-    >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
 </head>
 
 <body>
 
     <header>
         <div class="header-contenu">
-
-            <a href="index.html" class="logo" aria-label="CampusLink, accueil">
-                CampusLink
-            </a>
+            <a href="index.html" class="logo" aria-label="CampusLink, accueil">CampusLink</a>
 
             <nav aria-label="Navigation principale">
                 <ul>
@@ -34,195 +25,566 @@
                     <li><a href="transports.html" aria-current="page">Transports</a></li>
                 </ul>
             </nav>
-
         </div>
     </header>
-
 
     <main>
 
         <section class="transport-accueil">
-
             <p class="sur-titre">CampusLink · Vie du campus</p>
-
             <h1>Transports</h1>
-
             <p>
-                Retrouvez les informations sur les transports
-                pour faciliter vos déplacements autour du campus.
+                Retrouvez les informations sur les transports en Île-de-France :
+                lignes, horaires, perturbations et arrêts à proximité du campus.
             </p>
-
         </section>
 
-
         <section>
+            <h2>Rechercher un arrêt</h2>
+            <p>
+                Recherchez une gare, une station ou un arrêt partout en Île-de-France.
+            </p>
 
-            <h2>Rechercher un transport</h2>
-
-            <form class="transport-filtres" action="/transports" method="get">
-
-                <div>
-                    <label for="recherche">Nom d'un arrêt ou d'une ligne</label>
-                    <input
-                        type="search"
-                        id="recherche"
-                        name="recherche"
-                        placeholder="Ex : arrêt, ligne..."
-                    >
-                </div>
-
-                <div>
-                    <label for="type">Type de transport</label>
-
-                    <select id="type" name="type">
-                        <option value="">Tous les transports</option>
-                        <option value="bus">Bus</option>
-                        <option value="tram">Tramway</option>
-                        <option value="metro">Métro</option>
-                        <option value="train">Train</option>
-                    </select>
-                </div>
-
+            <form class="transport-recherche" id="form-recherche">
+                <input
+                    type="search"
+                    id="recherche"
+                    name="recherche"
+                    placeholder="Ex : Gare de Lyon, La Défense, Nanterre..."
+                    aria-label="Nom d'un arrêt ou d'une gare"
+                    autocomplete="off"
+                    required
+                >
                 <button type="submit">Rechercher</button>
-
             </form>
 
+            <div id="resultats-transports" aria-live="polite"></div>
         </section>
 
-
         <section>
-
-            <h2>Les réseaux de transport</h2>
-
+            <h2>Informations sur les transports</h2>
             <p>
-                Consultez les lignes et les arrêts disponibles
-                autour du campus.
+                Sélectionnez une catégorie pour consulter les informations disponibles.
             </p>
 
-            <div class="transport-cartes">
+            <div class="transport-categories">
 
-                <article>
-                    <h3>Bus</h3>
-                    <p>
-                        Retrouvez les lignes de bus et leurs arrêts.
-                    </p>
-                    <p class="transport-statut">
-                        Données API à connecter
-                    </p>
+                <article class="transport-categorie">
+                    <div class="transport-categorie-entete">
+                        <button type="button" class="bouton-categorie"
+                            aria-expanded="false" aria-controls="contenu-bus"
+                            data-categorie="contenu-bus">
+                            Bus et tramway
+                        </button>
+                    </div>
+                    <div class="transport-contenu" id="contenu-bus" hidden>
+                        <p>Consultez les lignes de bus et de tramway disponibles autour du campus.</p>
+                        <div id="liste-bus" class="transport-liste">
+                            <p class="transport-message">Chargement des lignes...</p>
+                        </div>
+                    </div>
                 </article>
 
-                <article>
-                    <h3>Tramway</h3>
-                    <p>
-                        Consultez les lignes de tramway à proximité.
-                    </p>
-                    <p class="transport-statut">
-                        Données API à connecter
-                    </p>
+                <article class="transport-categorie">
+                    <div class="transport-categorie-entete">
+                        <button type="button" class="bouton-categorie"
+                            aria-expanded="false" aria-controls="contenu-trains"
+                            data-categorie="contenu-trains">
+                            RER et trains
+                        </button>
+                    </div>
+                    <div class="transport-contenu" id="contenu-trains" hidden>
+                        <p>Retrouvez les lignes ferroviaires accessibles autour du campus.</p>
+                        <div id="liste-trains" class="transport-liste">
+                            <p class="transport-message">Chargement des lignes...</p>
+                        </div>
+                    </div>
                 </article>
 
-                <article>
-                    <h3>Métro et train</h3>
-                    <p>
-                        Retrouvez les stations et les lignes ferroviaires.
-                    </p>
-                    <p class="transport-statut">
-                        Données API à connecter
-                    </p>
+                <article class="transport-categorie">
+                    <div class="transport-categorie-entete">
+                        <button type="button" class="bouton-categorie"
+                            aria-expanded="false" aria-controls="contenu-perturbations"
+                            data-categorie="contenu-perturbations">
+                            Perturbations générales
+                        </button>
+                    </div>
+                    <div class="transport-contenu" id="contenu-perturbations" hidden>
+                        <p>Consultez les perturbations signalées sur les réseaux de transport.</p>
+                        <div id="liste-perturbations">
+                            <p class="transport-message">Chargement des perturbations...</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="transport-categorie">
+                    <div class="transport-categorie-entete">
+                        <button type="button" class="bouton-categorie"
+                            aria-expanded="false" aria-controls="contenu-proximite"
+                            data-categorie="contenu-proximite">
+                            Arrêts à proximité
+                        </button>
+                    </div>
+                    <div class="transport-contenu" id="contenu-proximite" hidden>
+                        <p>Découvrez les arrêts situés autour du campus Ynov de Nanterre.</p>
+                        <div id="chargement-proximite" class="transport-statut">
+                            Recherche des arrêts à proximité...
+                        </div>
+                        <div id="resultats-proximite" class="transport-liste"></div>
+                    </div>
                 </article>
 
             </div>
-
-        </section>
-
-
-        <section>
-
-            <h2>Informations sur les transports</h2>
-
-            <div class="transport-informations">
-
-                <article>
-                    <h3>Arrêts à proximité</h3>
-                    <p>
-                        Les arrêts proches du campus seront affichés ici.
-                    </p>
-                </article>
-
-                <article>
-                    <h3>Horaires</h3>
-                    <p>
-                        Les horaires des transports seront affichés ici.
-                    </p>
-                </article>
-
-                <article>
-                    <h3>Perturbations</h3>
-                    <p>
-                        Les éventuelles perturbations seront affichées ici.
-                    </p>
-                </article>
-
-            </div>
-
         </section>
 
     </main>
 
-
     <footer>
-
         <div class="footer-contenu">
-
             <section>
                 <h2>Nous joindre</h2>
-
-                <p>
-                    <a href="tel:+33100000000">01 00 00 00 00</a>
-                </p>
-
-                <p>
-                    <a href="mailto:contact@campuslink.fr">
-                        contact@campuslink.fr
-                    </a>
-                </p>
+                <p><a href="tel:+33100000000">01 00 00 00 00</a></p>
+                <p><a href="mailto:contact@campuslink.fr">contact@campuslink.fr</a></p>
             </section>
 
             <section>
                 <h2>Réseaux</h2>
-
                 <div class="logos">
-
-                    <a
-                        href="https://www.instagram.com/"
-                        aria-label="CampusLink sur Instagram"
-                    >
-                        <img
-                            src="https://img.magnific.com/vecteurs-premium/icone-logo-vectoriel-instagram-logotype-medias-sociaux_901408-392.jpg?semt=ais_hybrid&w=740&q=80"
-                            alt="Instagram"
-                        >
+                    <a href="https://www.instagram.com/" aria-label="CampusLink sur Instagram">
+                        <img src="https://img.magnific.com/vecteurs-premium/icone-logo-vectoriel-instagram-logotype-medias-sociaux_901408-392.jpg?semt=ais_hybrid&w=740&q=80" alt="Instagram">
                     </a>
-
-                    <a
-                        href="mailto:contact@campuslink.fr"
-                        aria-label="Envoyer un email à CampusLink"
-                    >
-                        <img
-                            src="https://static.vecteezy.com/ti/vecteur-libre/p1/13948544-logo-gmail-sur-fond-blanc-transparent-gratuit-vectoriel.jpg"
-                            alt="Gmail"
-                        >
+                    <a href="mailto:contact@campuslink.fr" aria-label="Envoyer un email à CampusLink">
+                        <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/13948544-logo-gmail-sur-fond-blanc-transparent-gratuit-vectoriel.jpg" alt="Gmail">
                     </a>
-
                 </div>
             </section>
-
         </div>
 
-        <p class="copyright">
-            © 2026 CampusLink - Tous droits réservés.
-        </p>
-
+        <p class="copyright">© 2026 CampusLink - Tous droits réservés.</p>
     </footer>
+
+    <script>
+        const formulaire = document.getElementById("form-recherche");
+        const champRecherche = document.getElementById("recherche");
+        const zoneResultats = document.getElementById("resultats-transports");
+
+        const zoneProximite = document.getElementById("resultats-proximite");
+        const chargementProximite = document.getElementById("chargement-proximite");
+
+        const listeBus = document.getElementById("liste-bus");
+        const listeTrains = document.getElementById("liste-trains");
+        const listePerturbations = document.getElementById("liste-perturbations");
+
+        let arretsProximite = [];
+        let perturbationsGenerales = [];
+
+        document.querySelectorAll(".bouton-categorie").forEach(function (bouton) {
+            bouton.addEventListener("click", function () {
+                const contenu = document.getElementById(bouton.dataset.categorie);
+                const estOuvert = bouton.getAttribute("aria-expanded") === "true";
+
+                bouton.setAttribute("aria-expanded", String(!estOuvert));
+                contenu.hidden = estOuvert;
+            });
+        });
+
+        formulaire.addEventListener("submit", rechercherArret);
+
+        async function rechercherArret(event) {
+            event.preventDefault();
+
+            const recherche = champRecherche.value.trim();
+
+            if (!recherche) {
+                zoneResultats.textContent = "Veuillez saisir un nom d'arrêt.";
+                champRecherche.focus();
+                return;
+            }
+
+            zoneResultats.textContent = "Recherche en cours...";
+
+            try {
+                const params = new URLSearchParams({
+                    q: recherche
+                });
+
+                const reponse = await fetch(
+                    "/api/transports/recherche?" + params.toString()
+                );
+
+                const donnees = await reponse.json();
+
+                if (!reponse.ok) {
+                    throw new Error(donnees.message || "Une erreur est survenue.");
+                }
+
+                zoneResultats.replaceChildren();
+
+                if (!donnees.places || donnees.places.length === 0) {
+                    zoneResultats.textContent = "Aucun arrêt trouvé.";
+                    return;
+                }
+
+                const titre = document.createElement("h3");
+                titre.textContent = donnees.places.length + " résultat(s) trouvé(s)";
+                zoneResultats.appendChild(titre);
+
+                donnees.places.forEach(function (lieu) {
+                    const carte = document.createElement("article");
+                    carte.className = "transport-detail";
+
+                    const nom = document.createElement("h3");
+                    nom.textContent = lieu.name || lieu.stop_area?.name || "Arrêt sans nom";
+                    carte.appendChild(nom);
+
+                    const idArret = lieu.stop_area?.id || lieu.id;
+                    const lignes = lieu.stop_area?.lines || [];
+
+                    const zoneLignes = document.createElement("div");
+                    zoneLignes.className = "transport-liste";
+
+                    if (lignes.length > 0) {
+                        const titreLignes = document.createElement("p");
+                        titreLignes.textContent = "Lignes disponibles :";
+                        zoneLignes.appendChild(titreLignes);
+
+                        lignes.forEach(function (ligne) {
+                            const bouton = document.createElement("button");
+                            bouton.type = "button";
+                            bouton.className = "transport-ligne";
+
+                            const code = document.createElement("span");
+                            code.className = "transport-ligne-code";
+                            code.textContent = ligne.code || ligne.name || "Ligne";
+                            bouton.appendChild(code);
+
+                            bouton.addEventListener("click", function () {
+                                afficherHoraires(idArret, carte, ligne.code || "");
+                            });
+
+                            zoneLignes.appendChild(bouton);
+                        });
+                    } else {
+                        const message = document.createElement("p");
+                        message.textContent = "Aucune ligne renseignée pour cet arrêt.";
+                        zoneLignes.appendChild(message);
+                    }
+
+                    carte.appendChild(zoneLignes);
+
+                    const boutonHoraires = document.createElement("button");
+                    boutonHoraires.type = "button";
+                    boutonHoraires.className = "bouton-horaires";
+                    boutonHoraires.textContent = "Voir tous les prochains passages";
+                    boutonHoraires.addEventListener("click", function () {
+                        afficherHoraires(idArret, carte);
+                    });
+
+                    carte.appendChild(boutonHoraires);
+                    zoneResultats.appendChild(carte);
+                });
+
+            } catch (erreur) {
+                zoneResultats.textContent = "Erreur : " + erreur.message;
+            }
+        }
+
+        chargerTransportsProximite();
+
+        async function chargerTransportsProximite() {
+            chargementProximite.textContent = "Recherche des arrêts à proximité...";
+
+            try {
+                const reponse = await fetch("/api/transports/proximite");
+                const donnees = await reponse.json();
+
+                if (!reponse.ok) {
+                    throw new Error(donnees.message || "Impossible de récupérer les arrêts.");
+                }
+
+                arretsProximite = donnees.places_nearby || [];
+                perturbationsGenerales = donnees.disruptions || [];
+
+                afficherArretsProximite();
+                afficherLignes();
+                afficherPerturbations();
+
+            } catch (erreur) {
+                chargementProximite.textContent = "Erreur : " + erreur.message;
+                listeBus.textContent = "Impossible de charger les lignes.";
+                listeTrains.textContent = "Impossible de charger les lignes.";
+                listePerturbations.textContent = "Impossible de charger les perturbations.";
+            }
+        }
+
+        function afficherArretsProximite() {
+            zoneProximite.replaceChildren();
+
+            if (arretsProximite.length === 0) {
+                chargementProximite.textContent = "Aucun arrêt trouvé à proximité du campus.";
+                return;
+            }
+
+            chargementProximite.textContent =
+                arretsProximite.length + " arrêts trouvés autour du campus.";
+
+            arretsProximite.forEach(function (arret) {
+                const carte = document.createElement("div");
+                carte.className = "transport-arret";
+
+                const nom = document.createElement("span");
+                nom.className = "transport-arret-nom";
+                nom.textContent = arret.name || arret.stop_area?.name || "Arrêt sans nom";
+
+                const distance = document.createElement("span");
+                distance.className = "transport-distance";
+
+                const metres = Number(arret.distance);
+                distance.textContent = Number.isFinite(metres)
+                    ? metres + " m"
+                    : "Distance inconnue";
+
+                carte.append(nom, distance);
+
+                const bouton = document.createElement("button");
+                bouton.type = "button";
+                bouton.className = "bouton-horaires";
+                bouton.textContent = "Voir les prochains passages";
+                bouton.addEventListener("click", function () {
+                    afficherHoraires(arret.stop_area?.id || arret.id, carte);
+                });
+
+                carte.appendChild(bouton);
+                zoneProximite.appendChild(carte);
+            });
+        }
+
+        function afficherLignes() {
+            listeBus.replaceChildren();
+            listeTrains.replaceChildren();
+
+            const lignesBus = [];
+            const lignesTrain = [];
+            const lignesDejaAjoutees = new Set();
+
+            arretsProximite.forEach(function (arret) {
+                const lignes = arret.stop_area?.lines || [];
+
+                lignes.forEach(function (ligne) {
+                    const identifiant = ligne.id || ligne.code || ligne.name || "";
+                    if (!identifiant || lignesDejaAjoutees.has(identifiant)) return;
+
+                    lignesDejaAjoutees.add(identifiant);
+
+                    const mode = (
+                        (ligne.commercial_mode?.name || "") + " " +
+                        (ligne.physical_modes || []).map(function (m) {
+                            return m.name || "";
+                        }).join(" ") + " " +
+                        (ligne.name || "")
+                    ).toLowerCase();
+
+                    const element = { ligne: ligne, arret: arret };
+
+                    if (mode.includes("bus") || mode.includes("tram")) {
+                        lignesBus.push(element);
+                    } else if (
+                        mode.includes("rer") ||
+                        mode.includes("train") ||
+                        mode.includes("transilien") ||
+                        mode.includes("ter")
+                    ) {
+                        lignesTrain.push(element);
+                    }
+                });
+            });
+
+            afficherListeLignes(lignesBus, listeBus);
+            afficherListeLignes(lignesTrain, listeTrains);
+        }
+
+        function afficherListeLignes(lignes, zone) {
+            zone.replaceChildren();
+
+            if (lignes.length === 0) {
+                const message = document.createElement("p");
+                message.className = "transport-message";
+                message.textContent =
+                    "Aucune ligne disponible dans les données reçues pour cette catégorie.";
+                zone.appendChild(message);
+                return;
+            }
+
+            lignes.forEach(function (element) {
+                const ligne = element.ligne;
+                const arret = element.arret;
+
+                const bouton = document.createElement("button");
+                bouton.type = "button";
+                bouton.className = "transport-ligne";
+
+                const code = document.createElement("span");
+                code.className = "transport-ligne-code";
+                code.textContent = ligne.code || ligne.name || "Ligne";
+
+                const direction = document.createElement("span");
+                direction.className = "transport-ligne-direction";
+                direction.textContent = arret.name || arret.stop_area?.name || "Arrêt à proximité";
+
+                bouton.append(code, direction);
+
+                bouton.addEventListener("click", function () {
+                    zone.querySelectorAll(".transport-detail").forEach(function (d) {
+                        d.remove();
+                    });
+
+                    const detail = document.createElement("div");
+                    detail.className = "transport-detail";
+
+                    const titre = document.createElement("h3");
+                    titre.textContent =
+                        (ligne.code || ligne.name || "Ligne") + " · " +
+                        (arret.name || arret.stop_area?.name || "Arrêt");
+
+                    const information = document.createElement("p");
+                    information.textContent = "Prochains passages depuis cet arrêt :";
+
+                    detail.append(titre, information);
+                    zone.appendChild(detail);
+
+                    afficherHoraires(arret.stop_area?.id || arret.id, detail, ligne.code || "");
+                });
+
+                zone.appendChild(bouton);
+            });
+        }
+
+        function afficherPerturbations() {
+            listePerturbations.replaceChildren();
+
+            if (perturbationsGenerales.length === 0) {
+                const message = document.createElement("p");
+                message.className = "transport-message";
+                message.textContent = "Aucune perturbation signalée dans les données reçues.";
+                listePerturbations.appendChild(message);
+                return;
+            }
+
+            perturbationsGenerales.forEach(function (perturbation) {
+                const carte = document.createElement("div");
+                carte.className = "transport-perturbation";
+
+                const titre = document.createElement("h3");
+                titre.textContent = perturbation.cause || "Perturbation signalée";
+
+                const description = document.createElement("p");
+                description.textContent =
+                    perturbation.messages?.[0]?.text ||
+                    perturbation.cause ||
+                    "Une perturbation est signalée.";
+
+                carte.append(titre, description);
+                listePerturbations.appendChild(carte);
+            });
+        }
+
+        async function afficherHoraires(idArret, carte, codeLigne = "") {
+            const ancienneZone = carte.querySelector(".horaires-resultats");
+            if (ancienneZone) ancienneZone.remove();
+
+            const zoneHoraires = document.createElement("div");
+            zoneHoraires.className = "horaires-resultats";
+            zoneHoraires.textContent = "Chargement des horaires...";
+            carte.appendChild(zoneHoraires);
+
+            try {
+                const params = new URLSearchParams({ id: idArret });
+                const reponse = await fetch(
+                    "/api/transports/horaires?" + params.toString()
+                );
+
+                const donnees = await reponse.json();
+
+                if (!reponse.ok) {
+                    throw new Error(donnees.message || "Impossible de récupérer les horaires.");
+                }
+
+                let departs = donnees.departures || [];
+
+                if (codeLigne) {
+                    departs = departs.filter(function (depart) {
+                        const code = depart.display_informations?.code || "";
+                        return code.toLowerCase() === codeLigne.toLowerCase();
+                    });
+                }
+
+                zoneHoraires.replaceChildren();
+
+                const titre = document.createElement("h3");
+                titre.textContent = "Prochains passages";
+                zoneHoraires.appendChild(titre);
+
+                if (departs.length === 0) {
+                    const message = document.createElement("p");
+                    message.textContent = codeLigne
+                        ? "Aucun passage disponible pour cette ligne dans les données reçues."
+                        : "Aucun passage disponible pour cet arrêt.";
+                    zoneHoraires.appendChild(message);
+                    return;
+                }
+
+                const liste = document.createElement("div");
+                liste.className = "horaires-liste";
+
+                departs.forEach(function (depart) {
+                    const informations = depart.display_informations || {};
+                    const passage = depart.stop_date_time || {};
+                    const date = passage.departure_date_time || "";
+
+                    let heure = "Non disponible";
+
+                    if (date.length >= 13) {
+                        heure = date.substring(9, 11) + "h" + date.substring(11, 13);
+                    }
+
+                    const element = document.createElement("article");
+                    element.className = "passage-item";
+
+                    const ligne = document.createElement("p");
+                    ligne.className = "passage-ligne";
+                    ligne.textContent =
+                        (informations.commercial_mode || "Transport") + " " +
+                        (informations.code || "Ligne inconnue");
+
+                    const direction = document.createElement("p");
+                    direction.className = "passage-direction";
+                    direction.textContent =
+                        "Direction : " + (informations.direction || "Non renseignée");
+
+                    const horaire = document.createElement("p");
+                    horaire.className = "passage-heure";
+                    horaire.textContent = heure;
+
+                    element.append(ligne, direction, horaire);
+                    liste.appendChild(element);
+                });
+
+                zoneHoraires.appendChild(liste);
+
+                const fraicheur = departs[0]?.stop_date_time?.data_freshness;
+
+                if (fraicheur) {
+                    const information = document.createElement("p");
+                    information.className = "fraicheur-horaires";
+                    information.textContent = "État des données : " + fraicheur;
+                    zoneHoraires.appendChild(information);
+                }
+
+            } catch (erreur) {
+                zoneHoraires.textContent = "Erreur : " + erreur.message;
+            }
+        }
+    </script>
 
 </body>
 </html>
